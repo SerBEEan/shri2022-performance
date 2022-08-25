@@ -1,0 +1,76 @@
+.section__title-header {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+.section__title {
+    display: flex;
+    align-items: baseline;
+    margin: 0 0 1.25rem 0;
+}
+
+.section__select {
+    display: none;
+    margin: 0 0 0 auto;
+    padding: 0.4375rem 1.9375rem .5rem 1rem;
+    border: none;
+    border-radius: 1.25rem;
+    font-size: 0.8125rem;
+    font-family: inherit;
+    font-weight: bold;
+    appearance: none;
+}
+
+.section__tabs {
+    display: flex;
+    gap: 0.625rem;
+    align-items: baseline;
+    margin: 0 0 0 0.8125rem;
+    padding: 0;
+    list-style: none;
+}
+
+.section__tab {
+    flex: 0 0 auto;
+    padding: 0.4375rem 0.9375rem .5rem;
+    font-size: 0.8125rem;
+    font-weight: bold;
+    background: #F7F7F7;
+    border-radius: 1024px;
+    cursor: pointer;
+    transition: .25s ease-in-out;
+    transition-property: background-color, box-shadow;
+}
+
+.section__tab_active {
+    background: #FFD93E;
+}
+
+.section__tab:not(.section__tab_active):hover {
+    background: #fff;
+    box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50);
+}
+
+.section__panel {
+    padding-bottom: .625rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.section__panel::-webkit-scrollbar {
+    display: none;
+}
+
+.section__panel_hidden {
+    display: none;
+}
+
+.section__panel-list {
+    display: flex;
+    gap: 0.9375rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
