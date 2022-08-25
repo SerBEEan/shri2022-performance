@@ -26,7 +26,6 @@
             font: inherit;
             vertical-align: baseline;
         }
-        /* HTML5 display-role reset for older browsers */
         article, aside, details, figcaption, figure,
         footer, header, hgroup, menu, nav, section {
             display: block;
@@ -352,6 +351,24 @@
         © 1997–2022 ООО «Яндекс»
     </div>
 </footer>
+
+<script>
+    const width = window.innerWidth;
+    function createLink (href) {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('type', 'text/css');
+        link.setAttribute('href', href);
+        document.head.appendChild(link);
+    }
+    if (width <= 1024) {
+        createLink('media1024.css');
+    }
+    if (width <= 768) {
+        createLink('media768.css');
+    }
+
+</script>
 
 <script src="scripts.js"></script>
 
