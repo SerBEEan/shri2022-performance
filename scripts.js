@@ -1,22 +1,27 @@
 function makeTabs(node) {
     const select = node.children[0].children[1];
     const tabList = node.children[0].children[2];
+    const itemsByFilters = {};
     const tabs = Array.from(tabList.children).reduce((acc, tab) => {
         acc[tab.dataset.id] = tab;
+        itemsByFilters[tab.dataset.id] = [];
         return acc;
     }, {});
-    const panels = Array.from(node.children).slice(1).reduce((acc, panel) => {
-        acc[panel.dataset.id] = panel;
-        return acc;
-    }, {});;
+    const listItems = node.children[1].childNodes[1].children;
+    Array.from(listItems).forEach((item) => {
+        const filters = item.dataset.filter.split(',');
+        filters.forEach((filter) => {
+            itemsByFilters[filter].push(item);
+        });
+    });
     const list = Object.keys(tabs);
     let selected = select.value;
 
     function selectTab(newId) {
         const newTab = tabs[newId];
-        const newPanel = panels[newId];
+        const newItems = itemsByFilters[newId];
         const oldTab = tabs[selected];
-        const oldPanel = panels[selected];
+        const oldItems = itemsByFilters[selected];
 
         selected = newId;
 
@@ -30,10 +35,14 @@ function makeTabs(node) {
             preventScroll: true
         });
 
-        oldPanel.classList.add('section__panel_hidden');
-        oldPanel.setAttribute('aria-hidden', 'true');
-        newPanel.classList.remove('section__panel_hidden');
-        newPanel.setAttribute('aria-hidden', 'false');
+        oldItems.forEach((item) => {
+            item.classList.add('section__panel-list__item_hidden');
+            item.setAttribute('aria-hidden', 'true');
+        });
+        newItems.forEach((item) => {
+            item.classList.remove('section__panel-list__item_hidden');
+            item.setAttribute('aria-hidden', 'false');
+        });
 
         select.value = newId;
     }
