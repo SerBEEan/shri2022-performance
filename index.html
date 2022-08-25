@@ -5,9 +5,27 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>Яндекс.Дом</title>
-    <link rel="preload" as="font" href="assets/lato.woff2" type="font/woff2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        html {
+            font-size: 100%;
+            font-family: Arial, sans-serif;
+            line-height: 1.25;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: inherit;
+            line-height: inherit;
+            margin: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="./dist/styles.min.css">
 </head>
 <body>
 
