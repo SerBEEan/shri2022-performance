@@ -96,5 +96,7 @@ function makeMenu() {
     });
 }
 
-makeTabs(document.querySelector('.main__devices'))
-makeMenu();
+document.addEventListener('DOMContentLoaded', () => {
+    makeTabs(document.querySelector('.main__devices'))
+    makeMenu();
+});
