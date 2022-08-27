@@ -1,7 +1,0 @@
-.main {
-    grid-template-columns: 100%;
-}
-
-.main__devices {
-    grid-column-end: 2;
-}
